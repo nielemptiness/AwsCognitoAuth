@@ -5,4 +5,10 @@
         <GenerateProgramFile>true</GenerateProgramFile>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Amazon.Extensions.CognitoAuthentication" Version="2.2.1" />
+      <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="3.7.0.21" />
+      <PackageReference Include="AWSSDK.Core" Version="3.7.0.45" />
+    </ItemGroup>
+
 </Project>
