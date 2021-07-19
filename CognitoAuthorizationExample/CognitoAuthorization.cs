@@ -15,6 +15,7 @@ namespace CognitoAuthorizationExample
             Access
         }
         private static AmazonCognitoIdentityProviderClient _cognitoClient;
+        
         //Here you should assign your AWS credentials. I recommend to store them at least at appsettings.json
         //But it is better to do so by docker-compose .env files or via env. variables at your build system
         private static string AWS_KEY_ID;
@@ -22,6 +23,7 @@ namespace CognitoAuthorizationExample
         private static string COGNITO_USER_POOL_ID;
         private static string COGNITO_APP_CLIENT_ID;
         private static string COGNITO_APP_CLIENT_SECRET;
+        private static RegionEndpoint _endpoint;
         private const string UserName = "admin";
         private const string Password = "root";
         
@@ -32,7 +34,7 @@ namespace CognitoAuthorizationExample
         public CognitoAuthorization()
         {
             _cognitoClient =
-                    new AmazonCognitoIdentityProviderClient(AWS_KEY_ID, AWS_SECRET_KEY, RegionEndpoint.EUCentral1);
+                    new AmazonCognitoIdentityProviderClient(AWS_KEY_ID, AWS_SECRET_KEY, _endpoint);
         }
         
         public static string GetAuthToken(Token token = Token.Id)
